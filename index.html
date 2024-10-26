@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-3xl font-bold text-center">Smart Attendance System</h1>
+    </header>
+
+    <main class="container mx-auto mt-6 p-4">
+       
+        <div id="loginForm" class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Login</h2>
+            <form onsubmit="login(event)">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Username:</label>
+                    <input type="text" id="username" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700">Password:</label>
+                    <input type="password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Login</button>
+            </form>
+        </div>
+
+      
+        <div id="attendanceSection" class="hidden mt-6 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Select Course and Attendance ID</h2>
+            <div class="mb-4">
+                <label for="courseSelect" class="block text-gray-700">Course Name:</label>
+                <select id="courseSelect" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+                    <option value="">-- Select a Course --</option>
+                    <option value="OOP 2 Lab">OOP 2 Lab</option>
+                    <option value="OOP 2 ">OOP 2 </option>
+                    <option value="Data Structures">Data Structures</option>
+                    <option value="DBMS">DBMS</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="attendanceID" class="block text-gray-700">Select Attendance ID:</label>
+                <select id="attendanceID" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+                    <option value="">-- Select an Section --</option>
+                    <option value="63_N">63_N</option>
+                    <option value="63_O">63_O</option>
+                    <option value="63_S">63_S</option>
+                    <option value="64_N">64_N</option>
+                    <option value="64_O">64_O</option>
+                    <option value="64_S">64_S</option>
+                   
+                </select>
+            </div>
+            <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" onclick="startFaceDetection()">Start Face Detection</button>
+            <button class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 mt-4" onclick="logout()">Logout</button>
+        </div>
+
+        
+        <div class="mt-6 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Attendance Records</h2>
+            <ul id="attendanceList" class="list-disc pl-5">
+             
+            </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
